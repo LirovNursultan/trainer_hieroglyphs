@@ -1,0 +1,15 @@
+{% extends 'hieroglyphs/base.html' %}
+{% block title %}Главное меню{% endblock %}
+{% block content %}
+<h1>Выберите словарь</h1>
+<ul class="list-group">
+    {% for dict in dictionaries %}
+        <li class="list-group-item">
+            <a href="{% url 'dictionary_detail' dict.id %}">{{ dict.name }}</a>
+            <div class="progress mt-2">
+                <div class="progress-bar" role="progressbar" style="width: {{ dict.progress }}%;" aria-valuenow="{{ dict.progress }}" aria-valuemin="0" aria-valuemax="100">{{ dict.progress }}%</div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

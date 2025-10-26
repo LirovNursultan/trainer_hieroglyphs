@@ -1,0 +1,17 @@
+# Python/Django ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database
+db.sqlite3
+
+# Media/uploads
+media/
+
+# Other temp
+*.log
+*.pot
+*.pyc
+venv/

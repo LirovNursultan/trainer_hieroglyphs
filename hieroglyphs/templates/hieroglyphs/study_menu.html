@@ -1,0 +1,11 @@
+{% extends 'hieroglyphs/base.html' %}
+{% block title %}Изучение: {{ dictionary.name }}{% endblock %}
+{% block content %}
+<h1>Выберите режим</h1>
+<ul class="list-group">
+    <li class="list-group-item"><a href="{% url 'flashcards' dictionary.id %}">1. Учить (флэш-карты)</a></li>
+    <li class="list-group-item"><a href="{% url 'practice' dictionary.id %}">2. Практика (выбор вариантов)</a></li>
+    <li class="list-group-item"><a href="{% url 'sentence_build' dictionary.id %}">3. Составление предложений</a></li>
+    {% comment %} <li><a href="{% url 'write_practice' dictionary.id %}">4. Учиться писать</a></li> {% endcomment %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'hieroglyphs/base.html' %}
+{% block title %}{{ dictionary.name }}{% endblock %}
+{% block content %}
+<h1>{{ dictionary.name }}</h1>
+<a href="{% url 'study_menu' dictionary.id %}" class="btn btn-primary">Начать изучение</a>
+<h2>Иероглифы в словаре:</h2>
+<ul class="list-group">
+    {% for h in hieroglyphs %}
+        <li class="list-group-item">
+            {{ h.character }} - {{ h.translation }}
+            {% if h.audio_file %}
+                <audio controls src="{{ h.audio_file.url }}"></audio>
+            {% endif %}
+            {% comment %} <a href="{% url 'draw_hieroglyph' h.id %}" class="btn btn-secondary">Рисовать</a> {% endcomment %}  <!-- Для дипломки -->
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
